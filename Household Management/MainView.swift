@@ -24,5 +24,5 @@ struct MainView: View {
 
 #Preview {
     MainView()
-        // .environmentObject(UserViewModel()) // UNCOMMENT WHEN USERVIEWMODEL.SWIFT IS IN SAME BRANCH
+        .environmentObject(UserViewModel())
 }
