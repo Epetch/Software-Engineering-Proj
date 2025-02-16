@@ -9,10 +9,20 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView {
+            ContentView()
+                .tabItem() {
+                    Label("Home", systemImage: "house.fill")
+                }
+            UserView()
+                .tabItem() {
+                    Label("User", systemImage: "person.fill")
+                }
+        }
     }
 }
 
 #Preview {
     MainView()
+        // .environmentObject(UserViewModel()) // UNCOMMENT WHEN USERVIEWMODEL.SWIFT IS IN SAME BRANCH
 }
