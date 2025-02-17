@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct Household_ManagementApp: App {
+    @StateObject var currentUser = UserViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
+                .environmentObject(currentUser) // puts current user into the app environment (can be used in all views)
         }
     }
 }
