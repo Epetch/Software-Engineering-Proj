@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
+		32A8E69C2D5D0435002EED95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9463109D2D53C91C00D7E49B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 946310A42D53C91C00D7E49B;
+			remoteInfo = "Household Management";
+		};
 		946310B62D53C91E00D7E49B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9463109D2D53C91C00D7E49B /* Project object */;
@@ -24,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		32A8E6982D5D0434002EED95 /* ChoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		946310A52D53C91C00D7E49B /* Household Management.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Household Management.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		946310B52D53C91E00D7E49B /* Household ManagementTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Household ManagementTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		946310BF2D53C91E00D7E49B /* Household ManagementUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Household ManagementUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +56,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		32A8E6952D5D0434002EED95 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		946310A22D53C91C00D7E49B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -88,6 +103,7 @@
 				946310A52D53C91C00D7E49B /* Household Management.app */,
 				946310B52D53C91E00D7E49B /* Household ManagementTests.xctest */,
 				946310BF2D53C91E00D7E49B /* Household ManagementUITests.xctest */,
+				32A8E6982D5D0434002EED95 /* ChoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,6 +111,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		32A8E6972D5D0434002EED95 /* ChoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32A8E6A02D5D0435002EED95 /* Build configuration list for PBXNativeTarget "ChoreTests" */;
+			buildPhases = (
+				32A8E6942D5D0434002EED95 /* Sources */,
+				32A8E6952D5D0434002EED95 /* Frameworks */,
+				32A8E6962D5D0434002EED95 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				32A8E69D2D5D0435002EED95 /* PBXTargetDependency */,
+			);
+			name = ChoreTests;
+			packageProductDependencies = (
+			);
+			productName = ChoreTests;
+			productReference = 32A8E6982D5D0434002EED95 /* ChoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		946310A42D53C91C00D7E49B /* Household Management */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 946310C92D53C91E00D7E49B /* Build configuration list for PBXNativeTarget "Household Management" */;
@@ -170,9 +206,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1600;
+				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
+					32A8E6972D5D0434002EED95 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 946310A42D53C91C00D7E49B;
+					};
 					946310A42D53C91C00D7E49B = {
 						CreatedOnToolsVersion = 16.0;
 					};
@@ -203,11 +243,19 @@
 				946310A42D53C91C00D7E49B /* Household Management */,
 				946310B42D53C91E00D7E49B /* Household ManagementTests */,
 				946310BE2D53C91E00D7E49B /* Household ManagementUITests */,
+				32A8E6972D5D0434002EED95 /* ChoreTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		32A8E6962D5D0434002EED95 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		946310A32D53C91C00D7E49B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -232,6 +280,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		32A8E6942D5D0434002EED95 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		946310A12D53C91C00D7E49B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -256,6 +311,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		32A8E69D2D5D0435002EED95 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 946310A42D53C91C00D7E49B /* Household Management */;
+			targetProxy = 32A8E69C2D5D0435002EED95 /* PBXContainerItemProxy */;
+		};
 		946310B72D53C91E00D7E49B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 946310A42D53C91C00D7E49B /* Household Management */;
@@ -269,6 +329,42 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		32A8E69E2D5D0435002EED95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = SE.ChoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Household Management.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Household Management";
+			};
+			name = Debug;
+		};
+		32A8E69F2D5D0435002EED95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = SE.ChoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Household Management.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Household Management";
+			};
+			name = Release;
+		};
 		946310C72D53C91E00D7E49B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -515,6 +611,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		32A8E6A02D5D0435002EED95 /* Build configuration list for PBXNativeTarget "ChoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32A8E69E2D5D0435002EED95 /* Debug */,
+				32A8E69F2D5D0435002EED95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		946310A02D53C91C00D7E49B /* Build configuration list for PBXProject "Household Management" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
