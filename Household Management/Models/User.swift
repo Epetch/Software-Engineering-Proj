@@ -45,6 +45,15 @@ class User: ObservableObject {
         ]
     }
     
+    func AddChore(newChore: Chore) {
+        self.chores.append(newChore);
+    }
+    
+    func RemoveChore(chore: Chore) {
+        // will work better with a chore ID property
+        self.chores = self.chores.filter({ $0.name != chore.name && $0.dueDate != chore.dueDate })
+    }
+    
     //func GetChores() {
         //}
         
