@@ -67,6 +67,7 @@ class TimeTable {
                 table.append(chore)
                 isAppended = true
             }
+            count += 1
         }
     }
     
