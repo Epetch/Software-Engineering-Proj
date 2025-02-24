@@ -12,9 +12,24 @@ import XCTest
 
 struct Household_ManagementTests {
     class Test_chores {
+        private var user: User!;
+        private var _name = "John Doe";
+        private var _house = "Test Address"; // change to house class when implemented
+        private var _email = "test@gmail.com";
+        
+        /* // uncomment if changing from this format to the format used below for Test_User
+         override func setUp() {
+             super.setUp()
+             user = User(name: _name, house: _house, email: _email);
+         }
+         */
+        
+        init(){ // remove if setUp func being used
+            user = User(name: _name, house: _house, email: _email);
+        }
+        
         func testUnmarkComplete(){
-            let user = User()
-            let chore = Chore(dueDate: Date(), description: "Wash Dishes", user: user, users:[user])
+            let chore = Chore(dueDate: Date(), description: "Wash Dishes", user: self.user, users:[self.user])
             
             chore.markComplete()
             chore.UnmarkComplete()
@@ -23,8 +38,7 @@ struct Household_ManagementTests {
             
         }
         func testIsCompleted(){
-            let user = User()
-            let chore = Chore(dueDate: Date(), description: "Wash Dishes", user: user, users: [user])
+            let chore = Chore(dueDate: Date(), description: "Wash Dishes", user: self.user, users: [self.user])
                 
                 XCTAssertFalse(chore.isCompleted(), "The chore should initially be marked as incomplete.")
                 
@@ -34,8 +48,7 @@ struct Household_ManagementTests {
         }
         func testGetDueDate() {
             let dueDate = Date(timeIntervalSince1970: 1000000000)  // Sample date
-            let user = User()
-            let chore = Chore(dueDate: dueDate, description: "Wash Dishes", user: user, users: [user])
+            let chore = Chore(dueDate: dueDate, description: "Wash Dishes", user: self.user, users: [self.user])
             
             XCTAssertEqual(chore.getDueDate(), dueDate, "The due date should match the one that was set.")
         }
@@ -68,9 +81,8 @@ struct Household_ManagementTests {
 
         */
         func testChoreInitialization() {
-            let user = User()
             let dueDate = Date(timeIntervalSince1970: 1000000000)  // Sample date
-            let chore = Chore(dueDate: dueDate, description: "Wash Dishes", user: user, users: [user])
+            let chore = Chore(dueDate: dueDate, description: "Wash Dishes", user: self.user, users: [self.user])
             
             XCTAssertEqual(chore.dueDate, dueDate, "The due date should match the initialized value.")
             XCTAssertEqual(chore.description, "Wash Dishes", "The description should match the initialized value.")
@@ -78,8 +90,7 @@ struct Household_ManagementTests {
             /*XCTAssertEqual(chore.setBy, user, "The chore should be set by the specified user.")*/
         }
         func testMarkCompleteTwice() {
-                let user = User()
-                let chore = Chore(dueDate: Date(), description: "Clean Windows", user: user, users: [user])
+                let chore = Chore(dueDate: Date(), description: "Clean Windows", user: self.user, users: [self.user])
                 
                 chore.markComplete()
                 chore.markComplete()  // Marking again
@@ -88,8 +99,7 @@ struct Household_ManagementTests {
             }
           
         func testUnmarkWithoutMarking() {
-                let user = User()
-                let chore = Chore(dueDate: Date(), description: "Take Out Trash", user: user, users: [user])
+                let chore = Chore(dueDate: Date(), description: "Take Out Trash", user: self.user, users: [self.user])
                 
                 chore.UnmarkComplete()  // Unmark without marking first
                 
@@ -97,8 +107,7 @@ struct Household_ManagementTests {
         }
       
         func testDescriptionUpdate() {
-                let user = User()
-                var chore = Chore(dueDate: Date(), description: "Old Description", user: user, users: [user])
+                var chore = Chore(dueDate: Date(), description: "Old Description", user: self.user, users: [self.user])
                 
                 chore.description = "New Description"
                 
@@ -159,14 +168,14 @@ class Test_User: XCTestCase {
     }
     
     func testAddChore() {
-        let newChore = Chore(name: "Washing", dueDate: "Tuesday", isCompleted: false);
+        let newChore = Chore(dueDate: Date.distantFuture, description: "Washing", user: self.user, users: [self.user])
         self.user.AddChore(newChore: newChore);
-        XCTAssertEqual(self.user.chores.last!.name, newChore.name)
+        XCTAssertEqual(self.user.chores.last!.description, newChore.description)
         XCTAssertEqual(self.user.chores.last!.dueDate, newChore.dueDate)
-        XCTAssertEqual(self.user.chores.last!.isCompleted, newChore.isCompleted)
     }
     func testRemoveChore() {
-        let chore = Chore(name: "Washing", dueDate: "Tuesday", isCompleted: false);
+        
+        let chore = Chore(dueDate: Date.distantFuture, description: "Washing", user: self.user, users: [self.user]);
         self.user.AddChore(newChore: chore)
         self.user.RemoveChore(chore: chore)
         XCTAssertTrue(self.user.chores.isEmpty)
