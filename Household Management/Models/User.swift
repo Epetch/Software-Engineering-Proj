@@ -7,17 +7,11 @@
 
 import Foundation
 
-struct Chore {
-    var name: String
-    var dueDate: String
-    var isCompleted: Bool
-}
-
 class User: ObservableObject {
     @Published private var _name: String
     @Published private var _house: String
     @Published private var _email: String
-    @Published var chores: [Chore]
+    @Published var chores: [Chore] = [];
 
     var name: String {
         get { return _name }
@@ -40,8 +34,8 @@ class User: ObservableObject {
         self._house = house
         self._email = email
         self.chores = [
-            Chore(name: "Hoovering", dueDate: "Friday", isCompleted: true),
-            Chore(name: "Mopping", dueDate: "Sunday", isCompleted: false)
+            Chore(dueDate: Date.distantFuture, description: "Hoovering", user: self, users: [self]),
+            Chore(dueDate: Date.distantFuture, description: "Mopping", user: self, users: [self])
         ]
     }
     
@@ -51,7 +45,7 @@ class User: ObservableObject {
     
     func RemoveChore(chore: Chore) {
         // will work better with a chore ID property
-        self.chores = self.chores.filter({ $0.name != chore.name && $0.dueDate != chore.dueDate })
+        self.chores = self.chores.filter({ $0.description != chore.description && $0.dueDate != chore.dueDate })
     }
     
     //func GetChores() {
