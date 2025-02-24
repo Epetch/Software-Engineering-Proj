@@ -35,6 +35,7 @@
 		946310A52D53C91C00D7E49B /* Household Management.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Household Management.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		946310B52D53C91E00D7E49B /* Household ManagementTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Household ManagementTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		946310BF2D53C91E00D7E49B /* Household ManagementUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Household ManagementUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C307CE5D2D748DF70063AA12 /* Household Management.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Household Management.xctestplan"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -90,6 +91,7 @@
 		9463109C2D53C91C00D7E49B = {
 			isa = PBXGroup;
 			children = (
+				C307CE5D2D748DF70063AA12 /* Household Management.xctestplan */,
 				946310A72D53C91C00D7E49B /* Household Management */,
 				946310B82D53C91E00D7E49B /* Household ManagementTests */,
 				946310C22D53C91E00D7E49B /* Household ManagementUITests */,
