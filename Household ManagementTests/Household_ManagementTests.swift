@@ -86,24 +86,24 @@ struct Household_ManagementTests {
                 
                 XCTAssertTrue(chore.isCompleted(), "The chore should remain marked as complete after multiple calls.")
             }
-
-            func testUnmarkWithoutMarking() {
+          
+        func testUnmarkWithoutMarking() {
                 let user = User()
                 let chore = Chore(dueDate: Date(), description: "Take Out Trash", user: user, users: [user])
                 
                 chore.UnmarkComplete()  // Unmark without marking first
                 
                 XCTAssertFalse(chore.isCompleted(), "The chore should remain incomplete even after unmarking without prior marking.")
-            }
-
-            func testDescriptionUpdate() {
+        }
+      
+        func testDescriptionUpdate() {
                 let user = User()
                 var chore = Chore(dueDate: Date(), description: "Old Description", user: user, users: [user])
                 
                 chore.description = "New Description"
                 
-                XCTAssertEqual(chore.description, "New Description", "The chore description should update correctly.")
-            }
+                XCTAssertEqual(chore.description, "New Description", "The chore description should update correctly.")    
+        }
         func testOverdueChore(){
             
         }
@@ -125,5 +125,50 @@ struct Household_ManagementTests {
         func testUserRemovalFromChore(){
             
         }
+    }
+}
+
+class Test_User: XCTestCase {
+    private var user: User!
+    private var _name = "John Doe";
+    private var _house = "Test Address"; // change to house class when implemented
+    private var _email = "test@gmail.com";
+    
+    override func setUp() {
+        super.setUp()
+        user = User(name: _name, house: _house, email: _email);
+    }
+    
+    func testInitialisation(){
+        XCTAssertEqual(user.name, _name, "User.name and name should be the same");
+        XCTAssertEqual(user.house, _house, "User.house and house should be the same");
+        XCTAssertEqual(user.email, _email, "User.email and email should be the same");
+    }
+    func testUpdateProperties(){
+        let newName = "Jane Doe";
+        user.name = newName;
+        XCTAssertEqual(user.name, newName, "user.name should be updated to newName")
+        // update house
+        let newHouse = "123 Road";
+        user.house = newHouse;
+        XCTAssertEqual(user.house, newHouse, "user.house should be updated to newHouse")
+        // update email
+        let newEmail = "test2@example.com";
+        user.email = newEmail;
+        XCTAssertEqual(user.email, newEmail, "user.email should be updated to newEmail")
+    }
+    
+    func testAddChore() {
+        let newChore = Chore(name: "Washing", dueDate: "Tuesday", isCompleted: false);
+        self.user.AddChore(newChore: newChore);
+        XCTAssertEqual(self.user.chores.last!.name, newChore.name)
+        XCTAssertEqual(self.user.chores.last!.dueDate, newChore.dueDate)
+        XCTAssertEqual(self.user.chores.last!.isCompleted, newChore.isCompleted)
+    }
+    func testRemoveChore() {
+        let chore = Chore(name: "Washing", dueDate: "Tuesday", isCompleted: false);
+        self.user.AddChore(newChore: chore)
+        self.user.RemoveChore(chore: chore)
+        XCTAssertTrue(self.user.chores.isEmpty)
     }
 }
