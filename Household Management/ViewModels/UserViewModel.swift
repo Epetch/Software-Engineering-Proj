@@ -5,20 +5,28 @@
 //  Created by James Sheppard on 16/02/2025.
 //  Handles User related logic seperately from UI logic, and can be used to interact with a db
 
+
+
 import Foundation
 
-class UserViewModel : ObservableObject {
+class UserViewModel: ObservableObject {
     @Published var user: User
     
     init() {
-        self.user = User(name: "John Smith", house: "123 Road")
+        self.user = User(name: "John Smith", house: "123 Road", email: "john@example.com")
     }
     
-    func updateName(newName: String){
-        user.name = newName;
+    func updateName(newName: String) {
+        user.name = newName
     }
     
-    func updateHouse (newHouse: String) {
-        user.house = newHouse;
+    func updateHouse(newHouse: String) {
+        user.house = newHouse
     }
+    
+    func updateEmail(newEmail: String) {
+        user.email = newEmail
+    }
+    
+    
 }
