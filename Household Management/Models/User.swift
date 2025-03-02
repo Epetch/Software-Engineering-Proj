@@ -6,13 +6,13 @@
 //  Edited by Ellie Deaner 18/2/2025
 
 import Foundation
-
+/* REMOVED THIS - Ed
 struct Chore {
     var name: String
     var dueDate: String
     var isCompleted: Bool
 }
-
+*/
 class User: ObservableObject {
     @Published private var _name: String
     @Published private var _house: String
@@ -39,6 +39,7 @@ class User: ObservableObject {
         self._name = name
         self._house = house
         self._email = email
+        
         self.chores = [
             Chore(name: "Hoovering", dueDate: "Friday", isCompleted: true),
             Chore(name: "Mopping", dueDate: "Sunday", isCompleted: false)
