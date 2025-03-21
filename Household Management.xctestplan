@@ -1,0 +1,45 @@
+{
+  "configurations" : [
+    {
+      "id" : "FC3EE72E-D490-4853-BD81-5D1C7FB0D0D5",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Household Management.xcodeproj",
+      "identifier" : "946310A42D53C91C00D7E49B",
+      "name" : "Household Management"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Household Management.xcodeproj",
+        "identifier" : "946310B42D53C91E00D7E49B",
+        "name" : "Household ManagementTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Household Management.xcodeproj",
+        "identifier" : "946310BE2D53C91E00D7E49B",
+        "name" : "Household ManagementUITests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Household Management.xcodeproj",
+        "identifier" : "32A8E6972D5D0434002EED95",
+        "name" : "ChoreTests"
+      }
+    }
+  ],
+  "version" : 1
+}
