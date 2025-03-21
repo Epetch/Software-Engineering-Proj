@@ -17,7 +17,7 @@
   },
   "testTargets" : [
     {
-      "parallelizable" : true,
+      "parallelizable" : false,
       "target" : {
         "containerPath" : "container:Household Management.xcodeproj",
         "identifier" : "946310B42D53C91E00D7E49B",
@@ -25,19 +25,10 @@
       }
     },
     {
-      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:Household Management.xcodeproj",
         "identifier" : "946310BE2D53C91E00D7E49B",
         "name" : "Household ManagementUITests"
-      }
-    },
-    {
-      "parallelizable" : true,
-      "target" : {
-        "containerPath" : "container:Household Management.xcodeproj",
-        "identifier" : "32A8E6972D5D0434002EED95",
-        "name" : "ChoreTests"
       }
     }
   ],
