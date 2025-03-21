@@ -21,7 +21,6 @@ platform :ios do
     scan(
       scheme: "Household Management",  # Replace with your Xcode scheme name
       device: "iPhone 16 Pro (18.2)",
-      # destination: "platform:iOS Simulator, id:12C46A00-2813-43B4-A70B-65A09EF9F7B5, OS:18.2, name:iPhone 16 Pro",
       clean: true,                # Clean the build folder before testing
       code_coverage: true,         # Optional: Enable code coverage
       output_directory: "fastlane/test_results",
