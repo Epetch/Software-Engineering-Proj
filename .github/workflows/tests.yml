@@ -11,7 +11,7 @@ jobs:
     runs-on: macOS-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Fastlane
         run: brew install fastlane
@@ -20,7 +20,7 @@ jobs:
         run: fastlane test
 
       - name: Upload test report as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-results-report
           path: fastlane/test_results/report.html
@@ -29,7 +29,7 @@ jobs:
         run: fastlane generate_coverage_report
 
       - name: Upload coverage report as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-report
           path: fastlane/test_results/coverage
