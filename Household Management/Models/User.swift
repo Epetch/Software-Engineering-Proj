@@ -35,6 +35,7 @@ class User: ObservableObject {
         self._name = name
         self._house = house
         self._email = email
+        
         self.chores = [
             
             Chore(dueDate: Date.distantFuture, description: "Hoovering", user: self, users: [self]),
