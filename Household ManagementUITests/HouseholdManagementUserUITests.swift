@@ -34,16 +34,16 @@ class UserViewUITests: XCTestCase {
         XCTAssertTrue(emailField.exists)
         
         nameField.clearText()
-        nameField.typeText("Jane Doe")
+        nameField.typeText("Jane Doe\n")
         
         houseField.clearText()
-        houseField.typeText("456 Avenue")
+        houseField.typeText("456 Avenue\n")
         
         emailField.clearText()
-        emailField.typeText("jane@example.com")
+        emailField.typeText("jane@example.com\n")
         
         // hide keyboard by simulating enter
-        emailField.typeText("\n")
+        //emailField.typeText("\n")
         
         XCTAssertTrue(saveButton.waitForExistence(timeout: 5))
         saveButton.ensureVisible() // Ensure it's visible before tapping
