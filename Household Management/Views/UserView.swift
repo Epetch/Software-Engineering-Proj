@@ -64,100 +64,102 @@ struct UserView: View {
             
          
             if isEditing {
-                VStack {
-                    TextField("Name", text: $editedName)
-                        .padding()
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    
-                    TextField("Address", text: $editedHouse)
-                        .padding()
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    
-                    TextField("Email", text: $editedEmail)
-                        .padding()
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .keyboardType(.emailAddress)
-                    
-                    Button(action: {
-                        currentUser.user.name = editedName
-                        currentUser.user.house = editedHouse
-                        currentUser.user.email = editedEmail
-                        isEditing = false
-                    }) {
-                        Text("Save")
-                            .frame(maxWidth: .infinity)
+                ScrollView{
+                    VStack {
+                        TextField("Name", text: $editedName)
                             .padding()
-                            .background(Color.green)
-                            .foregroundColor(.white)
-                            .cornerRadius(8)
-                    }
-                    .padding(.top)
-                    
-                    Button(action: {
-                        isEditing = false
-                    }) {
-                        Text("Cancel")
-                            .frame(maxWidth: .infinity)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                        
+                        TextField("Address", text: $editedHouse)
                             .padding()
-                            .background(Color.red)
-                            .foregroundColor(.white)
-                            .cornerRadius(8)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                        
+                        TextField("Email", text: $editedEmail)
+                            .padding()
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .keyboardType(.emailAddress)
+                        
+                        Button(action: {
+                            currentUser.user.name = editedName
+                            currentUser.user.house = editedHouse
+                            currentUser.user.email = editedEmail
+                            isEditing = false
+                        }) {
+                            Text("Save")
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.green)
+                                .foregroundColor(.white)
+                                .cornerRadius(8)
+                        }
+                        .padding(.top)
+                        
+                        Button(action: {
+                            isEditing = false
+                        }) {
+                            Text("Cancel")
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.red)
+                                .foregroundColor(.white)
+                                .cornerRadius(8)
+                        }
+                        .padding(.top)
                     }
-                    .padding(.top)
+                    .padding()
                 }
-                .padding()
             }
             
             
-            HStack {
-                Button(action: {
-                    isChoresSelected = true
-                }) {
-                    Text("Chores")
-                        .fontWeight(.bold)
-                        .font(.subheadline)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 6)
-                        .background(isChoresSelected ? Color(red: 1.0, green: 0.75, blue: 0.8) : Color.clear)
-                        .foregroundColor(isChoresSelected ? .white : Color(red: 1.0, green: 0.75, blue: 0.8))
-                        .cornerRadius(8)
+            if !isEditing{
+                HStack {
+                    Button(action: {
+                        isChoresSelected = true
+                    }) {
+                        Text("Chores")
+                            .fontWeight(.bold)
+                            .font(.subheadline)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 6)
+                            .background(isChoresSelected ? Color(red: 1.0, green: 0.75, blue: 0.8) : Color.clear)
+                            .foregroundColor(isChoresSelected ? .white : Color(red: 1.0, green: 0.75, blue: 0.8))
+                            .cornerRadius(8)
+                    }
+                    
+                    Button(action: {
+                        isChoresSelected = false
+                    }) {
+                        Text("Payments")
+                            .fontWeight(.bold)
+                            .font(.subheadline)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 6)  // Reduced vertical padding
+                            .background(!isChoresSelected ? Color(red: 1.0, green: 0.75, blue: 0.8) : Color.clear)
+                            .foregroundColor(!isChoresSelected ? .white : Color(red: 1.0, green: 0.75, blue: 0.8))
+                            .cornerRadius(8)
+                    }
                 }
+                .padding(.horizontal)
+                .padding(.top, 40)
+                .background(Color.white)
+                .cornerRadius(8)
                 
-                Button(action: {
-                    isChoresSelected = false
-                }) {
-                    Text("Payments")
-                        .fontWeight(.bold)
-                        .font(.subheadline)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 6)  // Reduced vertical padding
-                        .background(!isChoresSelected ? Color(red: 1.0, green: 0.75, blue: 0.8) : Color.clear)
-                        .foregroundColor(!isChoresSelected ? .white : Color(red: 1.0, green: 0.75, blue: 0.8))
-                        .cornerRadius(8)
+                if isChoresSelected {
+                    VStack {
+                        List {
+                            Text("No chores")
+                        }
+                        .frame(maxHeight: 200)
+                    }
+                } else {
+                    VStack {
+                        List {
+                            Text("No payments")
+                        }
+                        .frame(maxHeight: 200)
+                    }
                 }
             }
-            .padding(.horizontal)
-            .padding(.top, 40)
-            .background(Color.white)
-            .cornerRadius(8)
-            
-           
-            if isChoresSelected {
-                VStack {
-                    List {
-                        Text("No chores")
-                    }
-                    .frame(maxHeight: 200)
-                }
-            } else {
-                VStack {
-                    List {
-                        Text("No payments")
-                    }
-                    .frame(maxHeight: 200)
-                }
-            }
-            
             Spacer()
         }
         .sheet(isPresented: $isImagePickerPresented) {
