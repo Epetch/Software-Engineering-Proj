@@ -1,3 +1,11 @@
+//
+//  ChoreTests.swift
+//  Household Management
+//
+//  Created by James Sheppard on 22/03/2025.
+//
+
+
 import XCTest
 @testable import Household_Management
 
@@ -10,8 +18,8 @@ class ChoreTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        user1 = User(name: "Alice", email: "alice@example.com", house: "123 Street")
-        user2 = User(name: "Bob", email: "bob@example.com", house: "123 Street")
+        user1 = User(name: "Alice", house: "123 Street", email: "alice@example.com")
+        user2 = User(name: "Bob", house: "123 Street", email: "bob@example.com")
         chore = Chore(dueDate: Date(), description: "Take out the trash", user: user1, users: [user1, user2])
         timetable = TimeTable()
     }

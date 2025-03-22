@@ -25,4 +25,9 @@ extension XCUIElement {
             startCoordinate.press(forDuration: 0.1, thenDragTo: endCoordinate)
         }
     }
+    func scrollToElement() {
+        while !self.isHittable {
+            XCUIApplication().scrollViews.firstMatch.swipeUp()
+        }
+    }
 }

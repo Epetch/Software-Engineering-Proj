@@ -45,12 +45,12 @@ class UserViewUITests: XCTestCase {
         // hide keyboard by simulating enter
         emailField.typeText("\n")
         
-        //XCTAssertTrue(saveButton.waitForExistence(timeout: 5))
-        //saveButton.ensureVisible() // Ensure it's visible before tapping
+        XCTAssertTrue(saveButton.waitForExistence(timeout: 5))
+        saveButton.ensureVisible() // Ensure it's visible before tapping
         
-        if !saveButton.isHittable {
-            app.swipeUp()
-        }
+//        if !saveButton.isHittable {
+//            app.swipeUp()
+//        }
         saveButton.tap()
         
         XCTAssertTrue(app.staticTexts["Jane Doe"].exists)
@@ -63,12 +63,12 @@ class UserViewUITests: XCTestCase {
         editButton.tap()
         
         let cancelButton = app.buttons["Cancel"].firstMatch
-        //XCTAssertTrue(cancelButton.waitForExistence(timeout: 5))
-        //cancelButton.ensureVisible() // Ensure it's visible before tapping
-    
-        if !cancelButton.isHittable {
-            app.swipeUp()
-        }
+        XCTAssertTrue(cancelButton.waitForExistence(timeout: 5))
+        cancelButton.ensureVisible() // Ensure it's visible before tapping
+        
+//        if !cancelButton.isHittable {
+//            app.swipeUp()
+//        }
         
         cancelButton.tap()
         
