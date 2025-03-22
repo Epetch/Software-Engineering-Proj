@@ -55,15 +55,18 @@ class TimeTable {
         
     }
     func addChore(chore: Chore){
-        table.append(chore)
         var isAppended: Bool = false
         var count: Int = 0
         while (!isAppended){
-            if table[count].getDueDate() > chore.getDueDate(){
+            if table.isEmpty{
+                table.append(chore)
+                isAppended = true
+            }
+            else if table[count].getDueDate() > chore.getDueDate(){
                 table.insert(chore, at: count)
                 isAppended = true
             }
-            if count == table.count{
+            else if count == table.count-1{
                 table.append(chore)
                 isAppended = true
             }
