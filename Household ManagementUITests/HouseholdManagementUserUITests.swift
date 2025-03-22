@@ -27,7 +27,7 @@ class UserViewUITests: XCTestCase {
         let nameField = app.textFields["Name"]
         let houseField = app.textFields["Address"]
         let emailField = app.textFields["Email"]
-        let saveButton = app.buttons["Save"]
+        let saveButton = app.buttons["Save"].firstMatch
         
         XCTAssertTrue(nameField.exists)
         XCTAssertTrue(houseField.exists)
@@ -42,9 +42,15 @@ class UserViewUITests: XCTestCase {
         emailField.clearText()
         emailField.typeText("jane@example.com")
         
-        XCTAssertTrue(saveButton.waitForExistence(timeout: 5))
-        saveButton.ensureVisible() // Ensure it's visible before tapping
+        // hide keyboard by simulating enter
+        emailField.typeText("\n")
         
+        //XCTAssertTrue(saveButton.waitForExistence(timeout: 5))
+        //saveButton.ensureVisible() // Ensure it's visible before tapping
+        
+        while !saveButton.isHittable {
+            app.swipeUp()
+        }
         saveButton.tap()
         
         XCTAssertTrue(app.staticTexts["Jane Doe"].exists)
@@ -56,10 +62,14 @@ class UserViewUITests: XCTestCase {
         let editButton = app.buttons["Edit"]
         editButton.tap()
         
-        let cancelButton = app.buttons["Cancel"]
-        XCTAssertTrue(cancelButton.waitForExistence(timeout: 5))
-        cancelButton.ensureVisible() // Ensure it's visible before tapping
+        let cancelButton = app.buttons["Cancel"].firstMatch
+        //XCTAssertTrue(cancelButton.waitForExistence(timeout: 5))
+        //cancelButton.ensureVisible() // Ensure it's visible before tapping
     
+        while !cancelButton.isHittable {
+            app.swipeUp()
+        }
+        
         cancelButton.tap()
         
         XCTAssertFalse(app.textFields["Name"].exists)
