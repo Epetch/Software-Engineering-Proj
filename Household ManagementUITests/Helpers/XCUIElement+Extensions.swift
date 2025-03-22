@@ -18,4 +18,11 @@ extension XCUIElement {
         let deleteString = String(repeating: XCUIKeyboardKey.delete.rawValue, count: stringValue.count)
         self.typeText(deleteString)
     }
+    func ensureVisible() {
+        if !isHittable {
+            let startCoordinate = XCUIApplication().coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.9))
+            let endCoordinate = XCUIApplication().coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.1))
+            startCoordinate.press(forDuration: 0.1, thenDragTo: endCoordinate)
+        }
+    }
 }

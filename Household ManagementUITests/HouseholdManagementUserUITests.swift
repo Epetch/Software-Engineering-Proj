@@ -32,7 +32,6 @@ class UserViewUITests: XCTestCase {
         XCTAssertTrue(nameField.exists)
         XCTAssertTrue(houseField.exists)
         XCTAssertTrue(emailField.exists)
-        XCTAssertTrue(saveButton.exists)
         
         nameField.clearText()
         nameField.typeText("Jane Doe")
@@ -42,6 +41,9 @@ class UserViewUITests: XCTestCase {
         
         emailField.clearText()
         emailField.typeText("jane@example.com")
+        
+        XCTAssertTrue(saveButton.waitForExistence(timeout: 5))
+        saveButton.ensureVisible() // Ensure it's visible before tapping
         
         saveButton.tap()
         
@@ -55,7 +57,9 @@ class UserViewUITests: XCTestCase {
         editButton.tap()
         
         let cancelButton = app.buttons["Cancel"]
-        XCTAssertTrue(cancelButton.exists)
+        XCTAssertTrue(cancelButton.waitForExistence(timeout: 5))
+        cancelButton.ensureVisible() // Ensure it's visible before tapping
+    
         cancelButton.tap()
         
         XCTAssertFalse(app.textFields["Name"].exists)
