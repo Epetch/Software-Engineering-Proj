@@ -15,6 +15,8 @@ class UserViewUITests: XCTestCase {
         // Launch app before each test
         app = XCUIApplication()
         app.launch()
+        // go to user page
+        app.tabBars.buttons["User"].tap()
     }
     
     func testEditingUserInfo() throws {
@@ -32,13 +34,13 @@ class UserViewUITests: XCTestCase {
         XCTAssertTrue(emailField.exists)
         XCTAssertTrue(saveButton.exists)
         
-        nameField.tap()
+        nameField.clearText()
         nameField.typeText("Jane Doe")
         
-        houseField.tap()
+        houseField.clearText()
         houseField.typeText("456 Avenue")
         
-        emailField.tap()
+        emailField.clearText()
         emailField.typeText("jane@example.com")
         
         saveButton.tap()
