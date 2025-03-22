@@ -48,7 +48,7 @@ class UserViewUITests: XCTestCase {
         //XCTAssertTrue(saveButton.waitForExistence(timeout: 5))
         //saveButton.ensureVisible() // Ensure it's visible before tapping
         
-        while !saveButton.isHittable {
+        if !saveButton.isHittable {
             app.swipeUp()
         }
         saveButton.tap()
@@ -66,7 +66,7 @@ class UserViewUITests: XCTestCase {
         //XCTAssertTrue(cancelButton.waitForExistence(timeout: 5))
         //cancelButton.ensureVisible() // Ensure it's visible before tapping
     
-        while !cancelButton.isHittable {
+        if !cancelButton.isHittable {
             app.swipeUp()
         }
         
