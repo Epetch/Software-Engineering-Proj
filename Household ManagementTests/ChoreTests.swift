@@ -74,4 +74,22 @@ class ChoreTests: XCTestCase {
         timetable.removeChore(index: 0)
         XCTAssertEqual(timetable.getTable().count, 0)
     }
+    func testIsCompletedInitialState(){
+        XCTAssertFalse(chore.isCompleted(), "This chore should initially be marked as incomplete. ")
+    }
+    func testMarkCompleteChangesState() {
+           chore.markComplete()
+           XCTAssertTrue(chore.isCompleted(), "The chore should be marked as complete after calling markComplete().")
+       }
+    func testDescriptionUpdate() {
+            chore.description = "New Description"
+            XCTAssertEqual(chore.description, "New Description", "The chore description should update correctly.")
+        }
+    func testChoreReassignment() {
+            chore.reassign(to: user2)
+            XCTAssertEqual(chore.user, user2, "Chore should be reassigned to new user")
+        }
+    func testMultipleUsers() {
+            XCTAssertEqual(chore.getUsers().count, 2, "The chore should have two users assigned.")
+        }
 }
